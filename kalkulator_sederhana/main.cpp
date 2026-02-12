@@ -71,6 +71,8 @@ int main() {
         hasil = x % y;
         cout << "Hasilnya adalah: " << hasil;
     
+    } else {
+        cout << "Pilihan Anda tidak valid!!!" << endl;
     }
 
     return 0;
