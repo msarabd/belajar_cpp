@@ -1,25 +1,19 @@
 #include <iostream>
 using namespace std;
 
-double a;
-double b;
-
-int i = 0;
 double eksponen(double basis, double pangkat){
     if (pangkat < 0){
         double balik_basis = 1 / basis;
-
-        if (i > pangkat){
-            i--;
-            return balik_basis * eksponen(basis, pangkat);
+        
+        if (pangkat < 0){
+            return balik_basis * eksponen(basis, pangkat + 1);
         } else{
             return 1;
         }
-
+        
     } else{
-        if (i < pangkat){
-            i++;
-            return basis * eksponen(basis, pangkat);
+        if (pangkat > 0){
+            return basis * eksponen(basis, pangkat - 1);
         } else{
             return 1;
         }
@@ -27,6 +21,9 @@ double eksponen(double basis, double pangkat){
 }
 
 int main(){
+    double a;
+    double b;
+
     cout << "== PROGRAM MENGHITUNG EKSPONEN DENGAN REKURSIF ==" << endl << endl;
     cout << "Masukkan bilangan bulat a (basis): ";
     cin >> a;
