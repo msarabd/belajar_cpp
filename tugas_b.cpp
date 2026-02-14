@@ -12,14 +12,13 @@ int main(){
 
     cout << "== PROGRAM MENENTUKAN TRIPEL PYTAGORAS ==" << endl << endl;
     for (int i = 0; i < 3; i++){
-        cout << "Masukkan blangan ke-" << i + 1 << ": ";
+        cout << "Masukkan bilangan ke-" << i + 1 << ": ";
         cin >> sisi[i];
     }
 
     j = 0;
     sisi_terpanjang = sisi[0];
     for (int i = 1; i < 3; i++){
-        
         if (sisi[i] >= sisi_terpanjang){
             sisi_lainnya[j] = sisi_terpanjang;
             sisi_terpanjang = sisi[i];
@@ -27,7 +26,7 @@ int main(){
         } else {
             sisi_lainnya[j] = sisi[i];
             j++;
-        }    
+        }
     }
 
     cek_bil_asli = (sisi[0] > 0) && (sisi[1] > 0) && (sisi[2] > 0);
@@ -35,13 +34,12 @@ int main(){
     
     if (cek_bil_asli == true && total_kuadrat == sisi_terpanjang*sisi_terpanjang){
         cout << "\nNilai pytagorasnya adalah " << sisi_terpanjang << " dan ketiga bilangan tersebut merupakan tripel pytagoras" << endl;
-        
+    
     } else if (cek_bil_asli == false){
         cout << "\nInput harus berupa bilangan asli" << endl;
     
     } else {
         cout << "\nIni bukanlah tripel pytagoras" << endl;
-    
     }
 
     return 0;
