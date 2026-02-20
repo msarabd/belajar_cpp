@@ -2,7 +2,8 @@
 using namespace std;
 
 int main(){
-    /* do {
+    /* 
+    do {
         aksi;
     } while(syarat)
     */
