@@ -22,7 +22,7 @@ int main() {
         case 5:
             cout << "a = 5" << endl;
         default:
-            cout << "Nilai a bukan 1 - 5" << endl; // jikan tidak ada case yang terpenuhi, maka dia akan tereksekusi sendiri
+            cout << "Nilai a bukan 1 - 5" << endl; // jika tidak ada case yang terpenuhi, maka dia akan tereksekusi sendiri
     }
     
     cout << "akhir dari program" << endl;
