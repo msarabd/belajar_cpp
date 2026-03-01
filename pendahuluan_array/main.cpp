@@ -20,7 +20,7 @@ int main(){
     
     // cara mengubah data
     // dengan address
-    int *ptr = nilai;
+    int *ptr = nilai; // tidak pakai "&", karena dia adalah var nilai adalah array yang sudah menunjuk ke alamat indeks pertama array\
     *(ptr + 2) = 7;
     
     // dengan menimpa
