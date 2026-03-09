@@ -30,7 +30,7 @@ int main(){
     cout << "Nilai min = " << numeric_limits<int>::min() << endl;
     
     // bilangan decimal -> float, double
-    float d = 1.0;
+    float d = 1.0; // kalau ada "f" nya tidak masalah, itu hanya memperjelas tipe data nya float bukan double (biasakan pakai f)
     double e = 2.5;
 
     // character
