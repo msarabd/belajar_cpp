@@ -1,0 +1,9 @@
+Ini adalah baris 1.
+Ini adalah baris kedua.
+
+Data
+No  Nama
+1   Mahdi
+2   Alfito
+3   Budi
+4   Absyar
