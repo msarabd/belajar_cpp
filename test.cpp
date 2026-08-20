@@ -1,35 +1,52 @@
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
-int main(){
-    int n, m, input;
-    vector<vector<int>> matriks;
-    vector<int> baris;
+bool stringTobool(char str){
+    return (str == '1');
+}
 
-    cin >> n >> m;
-    if (n < 1 || n > 100 || m < 1 || m > 100) {
+int main(){
+    int n;
+    string s;
+    vector<string> matriks;
+    string inputString;
+    
+    cin >> n;
+    if (n < 1 || n > 500000) {
         return 0;
     }
 
-    for (int i = 0; i < n;  i++) {
-        for (int j = 0; j < m; j++) {
-            cin >> input;
-            if (input < 1 || input > 100) {
-                return 0;
-            }
-            baris.push_back(input);
-        }
-        matriks.push_back(baris);
-        baris.clear();
+    cin >> s;
+    if (s.size() != n) {
+        return 0;
     }
-    
-    for (int i = 0; i < m;  i++) {
-        for (int j = m - 1; j >= 0; j--) {
-            cout << matriks[j][i] << " ";
+
+    for (char huruf : s) {
+        if (huruf < 'a' || huruf > 'z') {
+            return 0;
         }
-        cout << endl;
     }
-    
+
+    int jumlah_char = 0;
+    int pertama = 0;
+    string partisi = s.substr(0, 1);
+    for (int i = 0 ; i < n ; i++) {
+        if (s[i] != s[n - i - 1]) {
+            return 0;
+        }
+        jumlah_char++;
+        if (s.substr(pertama, jumlah_char) == s.substr(n - i - 1, jumlah_char)) {
+            partisi += s[i];
+        } else {
+            matriks.push_back(partisi);
+            partisi = s.substr(i + 1);
+            pertama = i + 1;
+            jumlah_char = 0;
+        }
+    }
+
+    cout << matriks.size();
     return 0;
 }

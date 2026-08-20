@@ -13,5 +13,7 @@ int main(){
     cout << "Alamat dari aPtr: " << aPtr << endl;
     
     // dereferencing, mengambil data/nilai dari sebuah pointer
-    cout << "Nilai dari aPtr: " << *aPtr << endl; // anggapanna
+    cout << "Nilai dari aPtr: " << *aPtr << endl; // anggapannya on off
+
+    return 0;
 }

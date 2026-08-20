@@ -1,58 +1,70 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
-// struct: data yang dibentuk oleh beberapa data (subdata)
+// ==========================================
+// 1. DEKLARASI STRUCT
+// ==========================================
+// Struct 'alamat' dan 'Mahasiswa' bertindak sebagai cetak biru (blueprint).
+// Keduanya mengelompokkan beberapa tipe data (string, int) ke dalam satu kesatuan.
 
-struct buah{
-    string warna;
-    float berat;
-    int harga;
-    string rasa;
+struct alamat {
+    string nama;
+    long int nomor_rumah;
+    string nama_jalan;
+    string kota;
+    long kode_pos;
 };
 
-struct mhs{
+struct Mahasiswa {
     string nama;
     int nim;
-    int umur;
-    string gender;
 };
 
-int main(){
-    buah apel;
-    mhs mhs_1;
-    mhs mhs_2;
+int main() {
+    
+    // ==========================================
+    // 2. STRUCT BIASA & DOT OPERATOR (.)
+    // ==========================================
+    // Mendeklarasikan variabel 'alamat_saya' yang bertipe struct 'alamat'.
+    alamat alamat_saya;
+    
+    // Menggunakan Dot Operator (.) untuk mengisi dan mengakses 
+    // elemen/variabel di dalam struct biasa.
+    alamat_saya.nama = "Budi";
+    alamat_saya.nomor_rumah = 12;
 
-    apel.warna = "merah";
-    apel.berat = 120;
-    apel.harga = 15000;
-    apel.rasa = "manis banget";
-    
-    mhs_1.nama = "Cristiano Ronaldo";
-    mhs_1.nim = 002;
-    mhs_1.umur = 40;
-    mhs_1.gender = "pria";
-    
-    mhs_2.nama = "Lionel Adress Messi";
-    mhs_2.nim = 001;
-    mhs_2.umur = 38;
-    mhs_2.gender = "pria";
+    cout << "--- Akses Struct dengan Dot Operator ---" << endl;
+    cout << "Nama: " << alamat_saya.nama << endl;
+    cout << "Nomor Rumah: " << alamat_saya.nomor_rumah << endl;
+    cout << endl;
 
-    cout << "===========================" << endl;
-    cout << "       DATA MAHASISWA      " << endl;
-    cout << "===========================" << endl;
 
-    cout << "\nMahasiswa 1" << endl;
-    cout << "- Nama: " << mhs_1.nama << endl;
-    cout << "- NIM: " << mhs_1.nim << endl;
-    cout << "- Umur: " << mhs_1.umur << endl;
-    cout << "- Gender: " << mhs_1.gender << endl;
+    // ==========================================
+    // 3. POINTER PADA STRUCT & ARROW OPERATOR (->)
+    // ==========================================
+    // Mendeklarasikan variabel biasa 'mhs1'
+    Mahasiswa mhs1;
     
-    cout << "\nMahasiswa 2" << endl;
-    cout << "- Nama: " << mhs_2.nama << endl;
-    cout << "- NIM: " << mhs_2.nim << endl;
-    cout << "- Umur: " << mhs_2.umur << endl;
-    cout << "- Gender: " << mhs_2.gender << endl;
-    
+    // Mendeklarasikan pointer '*mhsPtr' yang menunjuk ke alamat memori '&mhs1'
+    Mahasiswa *mhsPtr = &mhs1; 
+
+    // Mengisi data awal menggunakan dot operator pada variabel asli
+    mhs1.nama = "Yunjin";
+    mhs1.nim = 321;
+    cout << "--- Akses Struct dengan Pointer ---" << endl;
+    cout << "Nilai awal mhs1: " << mhs1.nama << " - " << mhs1.nim << endl;
+
+    // MENGGUNAKAN ARROW OPERATOR (->)
+    // Karena 'mhsPtr' adalah sebuah pointer, kita WAJIB menggunakan operator 
+    // panah (->) untuk mengakses atau mengubah elemen di dalamnya, bukan operator titik (.).
+    mhsPtr->nama = "Chaewon";
+    mhsPtr->nim = 123;
+
+    // Membuktikan bahwa nilai mhs1 telah berubah karena dimanipulasi melalui pointer.
+    cout << "Nilai mhs1 setelah diubah via pointer: " << mhs1.nama << " - " << mhs1.nim << endl;
+    cout << "Nilai mhsPtr (sama dengan mhs1): " << mhsPtr->nama << " - " << mhsPtr->nim << endl;
+
     return 0;
 }
